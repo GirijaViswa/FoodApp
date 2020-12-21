@@ -3,8 +3,9 @@ import React from 'react';
 const SignUp = () => {
 
     return(
-        <div>
-            Welcome to signUp Page
+        <div className="Main-Content">
+            <div className="Main-Text">
+            <h2>Welcome to signUp Page</h2>
 
             <form>
 
@@ -17,10 +18,11 @@ const SignUp = () => {
                 <label>Confirm Password  </label>
                 <input name="password" type="password" placeholder="password"/><br/><br/>
 
-                <button type="submit">SignUp</button>
+                <button type="submit">SignUp</button><br/><br/>
 
             </form>
 
+        </div>
         </div>
     );
 }

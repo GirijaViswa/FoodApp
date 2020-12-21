@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import Home from './Components/Home.js';
 import Login from './Components/Login.js';
 import SignUp from './Components/SignUp.js';
-import {Route, Switch, Link, Redirect} from 'react-router-dom'
+import {Route, Switch, Link, Redirect} from 'react-router-dom';
 
 
 const handleLogout = () =>{

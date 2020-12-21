@@ -17,16 +17,26 @@ class Login extends React.Component{
         event.preventDefault();
         // debugger;
 
+        if (this.state.username.length <=0 || this.state.password.length <=0){
+            alert("Please fill in valid username and password")
+        }
+        else{  
+
 //Call made to auth service
+
         authService.login(this.state.username,this.state.password)
         .then(data => {
             // debugger;
             if(data.id){
                 this.props.history.push('/Home')
             }
+            else{
+                alert(data.message)
+                this.setState({username:'',password:''})
+            }   
         })
-
     }
+}
 
     handleChange = (event) => {
         let fieldName = event.target.name
@@ -44,10 +54,10 @@ class Login extends React.Component{
                         <form onSubmit={this.handleSubmit}>
 
                             <label>Username  </label>
-                            <input name="username" placeholder="username" onChange={this.handleChange}/><br/><br/>
+                            <input name="username" placeholder="username" onChange={this.handleChange} value={this.state.username}/><br/><br/>
 
                             <label>Password  </label>
-                            <input name="password" type="password" placeholder="password" onChange={this.handleChange}/><br/><br/>
+                            <input name="password" type="password" placeholder="password" onChange={this.handleChange} value={this.state.password}/><br/><br/>
 
                             <button type="submit">Login</button><br/><br/>
 
