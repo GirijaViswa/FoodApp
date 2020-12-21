@@ -1,0 +1,9 @@
+.Main-Content{
+    font-family: Libre Franklin;
+    text-align:center;
+    padding: 2%;
+}
+.Main-Text{
+    text-align: center;
+    border: 1px black solid;
+}

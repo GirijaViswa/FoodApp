@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React,{useState} from 'react';
+import Home from './Components/Home.js';
+import Login from './Components/Login.js';
+import SignUp from './Components/SignUp.js';
+import {Route, Switch, Link, Redirect} from 'react-router-dom'
 
-function App() {
+
+const handleLogout = () =>{
+    // debugger;
+    localStorage.removeItem('ActiveUser');
+    localStorage.removeItem('token');
+    <Redirect push to = "/Login" />
+
+}
+
+function App(props) {
+
+  // const {userIn,setUser} = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-Bar">
+      <Link to='/Home'>  Home  </Link>
+      {localStorage.getItem('token') ? 
+        <span>
+          {/* {setUser(true)} */}
+          <a onClick={()=>handleLogout()}>Logout</a>
+        </span>
+
+      : 
+        <span>
+          <Link to = '/Login' >  Login  </Link>
+          <Link to = '/SignUp' >  SignUp  </Link>
+        </span>}
+      
+    </div>
+      <Switch>
+        <Route exact path = "/Home" component={Home} />
+        <Route exact path = "/SignUp" component={SignUp} />
+        <Route  path = "/" component={Login} />
+      </Switch>
+
     </div>
   );
 }
