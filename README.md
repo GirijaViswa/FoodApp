@@ -3,9 +3,8 @@
 #### Modules Built
 
 1. Login
-2. SignUp
 
-Login procedure is done with mock server and generating JWT. 
+Login procedure is done with mock server and JWT generated. 
 
 #### Steps to clone and execute
 
