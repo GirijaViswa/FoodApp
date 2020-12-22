@@ -28,6 +28,17 @@ export default function ConfigureServer() {
             }
         }
     }
+//To create a user
+    window.fetch = function(url,opts){  
+        debugger;
+        if(url.endsWith('/users/create') && opts.method === 'PATCH'){
+            // debugger;
+            let params = JSON.parse(opts.body).credentials
+            //
+            //   storing in global variable will be invalid after page refresh
+            //
+        }
+    }
 }
 
 /* METHOD 2 */

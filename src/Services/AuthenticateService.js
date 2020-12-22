@@ -46,7 +46,21 @@ const login = (username,password) => {
     // })
 }
 
+// To create a new user
+const createUser = (credentials) => {
+
+    const options = {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({credentials})
+    }
+    debugger
+    return fetch(`${apiURL}/users/create`, options)
+    .then(response => response.json())
+}
+
 
 export const authService = {
-    login: login
+    login: login,
+    createUser:createUser
 }
