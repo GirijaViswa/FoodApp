@@ -2,15 +2,16 @@ import React,{useState} from 'react';
 import './Styling.css'
 import {authService} from '../Services/AuthenticateService.js'
 
-const handleSubmit = (obj,event) => {
+const handleSubmit = (obj,event,props) => {
     
     event.preventDefault();
-    if(obj["password"].length <=0 || obj["confirmPassword"].length <=0 || obj["username"] <=0){
+    if(obj["password"].length >=0 || obj["confirmPassword"].length >=0 || obj["username"] >=0){
         if (obj["password"] === obj["confirmPassword"]){
             authService.createUser(obj)
             .then(data => {
                 if(data.id){
-                    this.props.history.push('/Home')
+                    alert ("User created successfully")
+                    props.history.push('/Home')
                 }
                 else{
                     alert(data.message)
@@ -21,10 +22,9 @@ const handleSubmit = (obj,event) => {
     else{
         alert("Please fill in all the fields");
     }
-    
 }
 
-const SignUp = () => {
+const SignUp = (props) => {
 
     const [stateObject,setstateObject] = useState({username:'',password:'',confirmPassword:''})
 
@@ -33,7 +33,7 @@ const SignUp = () => {
             <div className="Main-Text">
             <h2>Welcome to SignUp Page</h2>
 
-            <form onSubmit={(event)=>handleSubmit(stateObject,event)}>
+            <form onSubmit={(event)=>handleSubmit(stateObject,event,props)}>
 
                 <label>Username  </label>
                 <input name="username" placeholder="username" onChange={(event)=>{setstateObject({...stateObject,[event.target.name]:event.target.value})}} value={stateObject['username']}/><br/><br/>

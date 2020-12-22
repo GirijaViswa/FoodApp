@@ -54,9 +54,18 @@ const createUser = (credentials) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({credentials})
     }
-    debugger
+    // debugger
     return fetch(`${apiURL}/users/create`, options)
-    .then(response => response.json())
+    .then(response => JSON.parse(response))
+    .then(data => {
+        debugger;
+        if(data.id){
+            debugger;
+            localStorage.setItem('token',data.token)
+            localStorage.setItem('ActiveUser',{username:data.username,id:data.id})
+        }
+        return data;
+    })
 }
 
 

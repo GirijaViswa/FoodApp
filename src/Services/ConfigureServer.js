@@ -30,13 +30,23 @@ export default function ConfigureServer() {
     }
 //To create a user
     window.fetch = function(url,opts){  
-        debugger;
+        // debugger;
         if(url.endsWith('/users/create') && opts.method === 'PATCH'){
             // debugger;
             let params = JSON.parse(opts.body).credentials
+            let user = {"id":userDetails.length+1,"username":params.username,"password":params.password}
             //
             //   storing in global variable will be invalid after page refresh
             //
+            userDetails.push(user)
+            // debugger
+            if(user){
+                return Promise.resolve(JSON.stringify({id:user.id,username:user.username,token:"Token granted",status:"ok"}))
+            }
+            else{
+                return Promise.resolve(JSON.stringify({message:"Unable to create the user",token:"Token declined",status:"declined"}))
+            }
+
         }
     }
 }
