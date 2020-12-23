@@ -19,10 +19,6 @@ function App(props) {
 
   const [LoggedIn, setLogin] = useContext(UserContext);
 
-  const handleLogin = () =>{
-    setLogin(true);
-  }
-
   return (
     <div className="App">
     {/* <UserProvider> */}
@@ -31,7 +27,7 @@ function App(props) {
       {(localStorage.getItem('token') || LoggedIn )? 
         <span>
           {/* {setUser(true)} */}
-          <a onClick={()=>handleLogout(setLogin)}>Logout</a>
+          <a href="/#" onClick={()=>handleLogout(setLogin)}>Logout</a>
         </span>
 
       : 
