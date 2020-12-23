@@ -11,6 +11,8 @@ const login = (username,password) => {
     }
 
 /* METHOD 1 */
+    // debugger;
+
     return fetch(`${apiURL}/users/authenticate`, options)
     .then(response => {
         // debugger;
@@ -58,9 +60,9 @@ const createUser = (credentials) => {
     return fetch(`${apiURL}/users/create`, options)
     .then(response => JSON.parse(response))
     .then(data => {
-        debugger;
+        // debugger;
         if(data.id){
-            debugger;
+            // debugger;
             localStorage.setItem('token',data.token)
             localStorage.setItem('ActiveUser',{username:data.username,id:data.id})
         }

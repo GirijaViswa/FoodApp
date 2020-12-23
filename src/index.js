@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
-import ConfigureServer from './Services/ConfigureServer.js'
+import ConfigureServer from './Services/ConfigureServer.js';
+import {UserProvider} from './UserContext.js';
+
 
 ConfigureServer();
 
@@ -13,9 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
 
     <BrowserRouter>
+    <UserProvider>
     
       <App />
       
+    </UserProvider>
     </BrowserRouter>
 
   </React.StrictMode>,

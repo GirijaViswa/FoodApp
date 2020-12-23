@@ -1,10 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import './Styling.css'
-import {authService} from '../Services/AuthenticateService.js'
+import {authService} from '../Services/AuthenticateService.js';
+import {UserContext} from '../UserContext.js';
 
-const handleSubmit = (obj,event,props) => {
+const handleSubmit = (obj,event,props,[LoggedIn, setLogin]) => {
     
     event.preventDefault();
+    // debugger;
     if(obj["password"].length >=0 || obj["confirmPassword"].length >=0 || obj["username"] >=0){
         if (obj["password"] === obj["confirmPassword"]){
             authService.createUser(obj)
@@ -12,6 +14,7 @@ const handleSubmit = (obj,event,props) => {
                 if(data.id){
                     alert ("User created successfully")
                     props.history.push('/Home')
+                    setLogin(true)
                 }
                 else{
                     alert(data.message)
@@ -26,6 +29,8 @@ const handleSubmit = (obj,event,props) => {
 
 const SignUp = (props) => {
 
+    const [LoggedIn, setLogin] = useContext(UserContext);
+
     const [stateObject,setstateObject] = useState({username:'',password:'',confirmPassword:''})
 
     return(
@@ -33,7 +38,7 @@ const SignUp = (props) => {
             <div className="Main-Text">
             <h2>Welcome to SignUp Page</h2>
 
-            <form onSubmit={(event)=>handleSubmit(stateObject,event,props)}>
+            <form onSubmit={(event)=>handleSubmit(stateObject,event,props,[LoggedIn, setLogin])}>
 
                 <label>Username  </label>
                 <input name="username" placeholder="username" onChange={(event)=>{setstateObject({...stateObject,[event.target.name]:event.target.value})}} value={stateObject['username']}/><br/><br/>

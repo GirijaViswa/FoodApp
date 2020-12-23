@@ -1,8 +1,12 @@
 import React from 'react';
 import './Styling.css'
-import {authService} from '../Services/AuthenticateService.js'
+import {authService} from '../Services/AuthenticateService.js';
+// import {UserContext} from '../UserContext.js';
+
 
 class Login extends React.Component{
+
+    // static LoggedIn = UserContext;
 
     constructor(props){
         super(props)
@@ -12,6 +16,7 @@ class Login extends React.Component{
             this.props.history.push('/Home')
         }
     }
+
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -28,7 +33,10 @@ class Login extends React.Component{
         .then(data => {
             // debugger;
             if(data.id){
+                // debugger
                 this.props.history.push('/Home')
+                this.props.status[1](true)
+                
             }
             else{
                 alert(data.message)

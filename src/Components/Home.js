@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styling.css'
+import './Styling.css';
 
 class Home extends React.Component{
 
