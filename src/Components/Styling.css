@@ -1,9 +1,41 @@
 .Main-Content{
     font-family: Libre Franklin;
+    font-size: 20px;
     text-align:center;
     padding: 2%;
 }
+
 .Main-Text{
     text-align: center;
     border: 1px black solid;
+}
+
+/* form{
+    /* border: 1px black solid; */
+    /* padding: 3%; 
+}*/
+
+.Nav-right{
+    float: right;
+}
+
+Link,a{
+    color: cornsilk;
+    text-decoration: none;
+    margin-right: 3%;
+    margin-left: 2%;
+    padding: 0.5%;
+    float: left;
+    text-align: center;
+}
+
+button{
+    background-color: #1460a7;
+    padding: 0.75%;
+    color: cornsilk;
+    font-size: 14px;
+}
+
+Link:hover,a:hover{
+    color: rgb(216, 67, 67);
 }

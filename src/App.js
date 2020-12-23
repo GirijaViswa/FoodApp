@@ -23,17 +23,17 @@ function App(props) {
     <div className="App">
     {/* <UserProvider> */}
     <div className="App-Bar">
-      <Link to='/Home'>  Home  </Link>
+      <span>
+      <Link to='/Home'>Home</Link></span>
       {(localStorage.getItem('token') || LoggedIn )? 
         <span>
           {/* {setUser(true)} */}
-          <a href="/#" onClick={()=>handleLogout(setLogin)}>Logout</a>
+          <a href="/#" onClick={()=>handleLogout(setLogin)} className="Nav-right" >Logout</a>
         </span>
-
       : 
         <span>
-          <Link to = '/Login' >  Login  </Link>
-          <Link to = '/SignUp' >  SignUp  </Link>
+          <Link to = '/Login' className="Nav-right" >Login</Link>
+          <Link to = '/SignUp' className="Nav-right" >SignUp</Link>
         </span>}
       
     </div>

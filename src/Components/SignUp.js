@@ -36,7 +36,7 @@ const SignUp = (props) => {
     return(
         <div className="Main-Content">
             <div className="Main-Text">
-            <h2>Welcome to SignUp Page</h2>
+            <br/><h2>Welcome to SignUp Page</h2><br/>
 
             <form onSubmit={(event)=>handleSubmit(stateObject,event,props,[LoggedIn, setLogin])}>
 

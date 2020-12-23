@@ -3,9 +3,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 .App-Bar{
-  background-color: #71b6eb;
+  /* background-color: #333; */
+    /* background-color: #69841F; */
+  background-color: #1460a7;
+  height: 28px;
   padding: 2%;
   font-family: Libre Franklin;
   font-size: 22px;
+  text-align: center;
 }
 
